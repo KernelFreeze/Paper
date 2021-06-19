@@ -37,4 +37,8 @@ jobs:
                   git config --global user.email "no-reply@github.com"
                   git config --global user.name "Github Actions"
                   ./gradlew applyPatches --stacktrace
-                  ./gradlew build --stacktrace
+                  ./gradlew jar --stacktrace
+            - name: Archive production artifacts
+              uses: actions/upload-artifact@v2
+              with:
+                path: build/libs
